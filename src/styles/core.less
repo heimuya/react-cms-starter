@@ -1,0 +1,24 @@
+@icon-url: "../static/iconfont/iconfont";
+@npm-path: "../../node_modules";
+
+@import 'base';
+@import '@{npm-path}/normalize.css/normalize.css';
+@import "@{npm-path}/antd/lib/style/themes/default.less";
+@import "@{npm-path}/antd/lib/style/core/index.less";
+@import "@{npm-path}/antd/lib/style/components.less";
+// Some best-practice CSS that's useful for most apps
+// Just remove them if they're not what you want
+html {
+  box-sizing: border-box;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}

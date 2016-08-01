@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './Counter.scss'
+import classes from './Counter.less'
 
 export const Counter = (props) => (
   <div>

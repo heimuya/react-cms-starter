@@ -126,7 +126,7 @@ webpackConfig.module.loaders = [{
   loader: 'babel',
   query: {
     cacheDirectory: true,
-    plugins: ['transform-runtime'],
+    plugins: ['transform-runtime', 'antd'],
     presets: ['es2015', 'react', 'stage-0'],
     env: {
       production: {
@@ -173,13 +173,13 @@ if (isUsingCSSModules) {
   ].join('&')
 
   webpackConfig.module.loaders.push({
-    test: /\.scss$/,
+    test: /\.less/,
     include: cssModulesRegex,
     loaders: [
       'style',
       cssModulesLoader,
       'postcss',
-      'sass?sourceMap'
+      'less?sourceMap'
     ]
   })
 
@@ -196,16 +196,18 @@ if (isUsingCSSModules) {
 
 // Loaders for files that should not be treated as CSS modules.
 const excludeCSSModules = isUsingCSSModules ? cssModulesRegex : false
+
 webpackConfig.module.loaders.push({
-  test: /\.scss$/,
+  test: /\.less/,
   exclude: excludeCSSModules,
   loaders: [
     'style',
     BASE_CSS_LOADER,
     'postcss',
-    'sass?sourceMap'
+    'less?sourceMap'
   ]
 })
+
 webpackConfig.module.loaders.push({
   test: /\.css$/,
   exclude: excludeCSSModules,

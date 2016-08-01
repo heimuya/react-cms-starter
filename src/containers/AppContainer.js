@@ -2,6 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { Router } from 'react-router'
 import { Provider } from 'react-redux'
 
+// antd
+import { LocaleProvider } from 'antd'
+
 // localization
 import { IntlProvider, addLocaleData } from 'react-intl'
 import en from 'react-intl/locale-data/en'
@@ -22,11 +25,13 @@ class AppContainer extends Component {
 
     return (
       <Provider store={store}>
-        <IntlProvider locale={navigator.language} messages={zhCN}>
-          <div style={{ height: '100%' }}>
-            <Router history={history} children={routes} />
-          </div>
-        </IntlProvider>
+        <LocaleProvider>
+          <IntlProvider locale={navigator.language} messages={zhCN}>
+            <div style={{ height: '100%' }}>
+              <Router history={history} children={routes} />
+            </div>
+          </IntlProvider>
+        </LocaleProvider>
       </Provider>
     )
   }
