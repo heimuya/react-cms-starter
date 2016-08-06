@@ -5,6 +5,9 @@ import { Provider } from 'react-redux'
 // antd
 import { LocaleProvider } from 'antd'
 
+// core styles
+import 'antd/dist/antd.less'
+
 // localization
 import { IntlProvider, addLocaleData } from 'react-intl'
 import en from 'react-intl/locale-data/en'

@@ -2,6 +2,7 @@ import { createTypes } from 'reduxsauce'
 
 export default createTypes(`
   COUNTER_INCREMENT
+  DOUBLE_INCREMENT
 
   LOGIN_REQUEST
   LOGIN_SUCCESS
