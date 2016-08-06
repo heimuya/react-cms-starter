@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 // import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
-import sagas from '../sagas'
+import SagaManager from '../sagas/SagaManager'
 import makeRootReducer from './reducers'
 
 export default (initialState = {}, history) => {
@@ -41,9 +41,13 @@ export default (initialState = {}, history) => {
       const reducers = require('./reducers').default
       store.replaceReducer(reducers(store.asyncReducers))
     })
+    module.hot.accept('../sagas/SagaManager', () => {
+      SagaManager.cancelSagas(store)
+      require('../sagas/SagaManager').default.startSagas(sagaMiddleware)
+    })
   }
 
-  sagaMiddleware.run(sagas)
+  SagaManager.startSagas(sagaMiddleware)
 
   return store
 }

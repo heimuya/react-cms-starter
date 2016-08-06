@@ -126,7 +126,7 @@ webpackConfig.module.loaders = [{
   loader: 'babel',
   query: {
     cacheDirectory: true,
-    plugins: ['transform-runtime', 'antd'],
+    plugins: ['transform-runtime', ['antd', { style: true }]],
     presets: ['es2015', 'react', 'stage-0'],
     env: {
       production: {
@@ -221,7 +221,7 @@ webpackConfig.module.loaders.push({
 // ------------------------------------
 // Style Configuration
 // ------------------------------------
-webpackConfig.sassLoader = {
+webpackConfig.lessLoader = {
   includePaths: paths.client('styles')
 }
 

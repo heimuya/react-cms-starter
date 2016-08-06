@@ -3,10 +3,8 @@ import { Router } from 'react-router'
 import { Provider } from 'react-redux'
 
 // antd
+import '../styles/core.less'
 import { LocaleProvider } from 'antd'
-
-// core styles
-import 'antd/dist/antd.less'
 
 // localization
 import { IntlProvider, addLocaleData } from 'react-intl'

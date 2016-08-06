@@ -1,9 +1,11 @@
 import { fork } from 'redux-saga/effects'
-import loginSaga from './LoginSaga'
-import counterSaga from './CounterSaga'
+
+// use require.context to load all needed sagas
+const context = require.context('./', false, /\.js$/)
+const keys = context.keys().filter(item => item !== './index.js' && item !== './SagaManager.js')
 
 export default function *root() {
-  // start fork function
-  yield fork(loginSaga().watcher)
-  yield fork(counterSaga().watcher)
+  for (let i = 0; i < keys.length; i ++) {
+    yield fork(context(keys[i]).default)
+  }
 }

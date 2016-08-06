@@ -1,6 +1,6 @@
 // We only need to import the modules necessary for initial render
 import CoreLayout from '../containers/CoreLayout'
-import Home from '../containers/Home'
+import Home from './home'
 import CounterRoute from './counter'
 
 /*  Note: Instead of using JSX, we recommend using react-router
